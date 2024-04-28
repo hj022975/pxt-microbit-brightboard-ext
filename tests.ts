@@ -5,7 +5,7 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     brightboard.colorGradient(
         0,
-        12,
+        15,
         0x00dcff,
         0xff0000
     )
