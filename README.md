@@ -1,3 +1,5 @@
+!!! extended from 12 to 15 Pixels for test purposes !!!
+
 # Bright Board display
 
 [Bright Board](https://brightwearables.com/product/bright-board/) is an accessory PCB for micro:bit that is designed for use in wearable projects. It is a part of the [Bright Wearables](https://www.brightwearables.com) product line of micro:bit-powered LED bags and backpacks. The Bright Board contains twelve SK9822/APA102 addressable LEDs which display different colors, patterns, and animations when controlled by the micro:bit.
@@ -89,7 +91,7 @@ brightboard.brightness()
 
 ## Pattern blocks
 
-Set the LED colors from the specified pattern. If the pattern length is less than 12, the colors in the pattern will repeat until all LEDs are set.
+Set the LED colors from the specified pattern. If the pattern length is less than 15, the colors in the pattern will repeat until all LEDs are set.
 ```blocks
 brightboard.setPattern()
 ```
@@ -111,7 +113,7 @@ fadeToPattern(brightboard.colorForLedVariableLength(0xff0000, 0x000000), 5)
 
 Create a color gradient with a specified start pixel, length, start color and end color
 ```blocks
-brightboard.colorGradient(0,12,0xff0000,0x00ff00)
+brightboard.colorGradient(0,15,0xff0000,0x00ff00)
 ```
 
 ## Example
