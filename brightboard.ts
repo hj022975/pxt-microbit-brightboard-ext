@@ -115,7 +115,7 @@ namespace brightboard {
     }
 
     /**
-     * Returns list of 12 color choices for the LEDs
+     * Returns list of 15 color choices for the LEDs
      * @param ledval1 eg:0xff0000
      * @param ledval2 eg:0xFF7F00
      * @param ledval3 eg:0xFFFE00
@@ -128,8 +128,11 @@ namespace brightboard {
      * @param ledval10 eg:0x7F00FF
      * @param ledval11 eg:0xFE00FF
      * @param ledval12 eg:0xFF007F
+     * @param ledval13 eg:0x7F00FF
+     * @param ledval14 eg:0xFE00FF
+     * @param ledval15 eg:0xFF007F
      */
-    //% blockId="color_for_led" block="$ledval1|$ledval2|$ledval3|$ledval4|$ledval5|$ledval6|$ledval7|$ledval8|$ledval9|$ledval10|$ledval11|$ledval12"
+    //% blockId="color_for_led" block="$ledval1|$ledval2|$ledval3|$ledval4|$ledval5|$ledval6|$ledval7|$ledval8|$ledval9|$ledval10|$ledval11|$ledval12|$ledval13|$ledval14|$ledval15"
     //% weight=100
     //% ledval1.shadow="brightColorNumberPicker"
     //% ledval2.shadow="brightColorNumberPicker"
@@ -143,13 +146,16 @@ namespace brightboard {
     //% ledval10.shadow="brightColorNumberPicker"
     //% ledval11.shadow="brightColorNumberPicker"
     //% ledval12.shadow="brightColorNumberPicker"
+    //% ledval13.shadow="brightColorNumberPicker"
+    //% ledval14.shadow="brightColorNumberPicker"
+    //% ledval15.shadow="brightColorNumberPicker"
     //% inlineInputMode=inline group=patterns
-    export function colorForLed(ledval1: number, ledval2: number, ledval3: number, ledval4: number, ledval5: number, ledval6: number, ledval7: number, ledval8: number, ledval9: number, ledval10: number, ledval11: number, ledval12: number): ColorPattern {
-        return new ColorPattern([ledval1, ledval2, ledval3, ledval4, ledval5, ledval6, ledval7, ledval8, ledval9, ledval10, ledval11, ledval12]);
+    export function colorForLed(ledval1: number, ledval2: number, ledval3: number, ledval4: number, ledval5: number, ledval6: number, ledval7: number, ledval8: number, ledval9: number, ledval10: number, ledval11: number, ledval12: number, ledval13: number, ledval14: number, ledval15: number): ColorPattern {
+        return new ColorPattern([ledval1, ledval2, ledval3, ledval4, ledval5, ledval6, ledval7, ledval8, ledval9, ledval10, ledval11, ledval12, ledval13, ledval14, ledval15]);
     }
 
     /**
-     * Returns variable length list of up to 12 LED colors
+     * Returns variable length list of up to 15 LED colors
      * @param ledval1 eg:0xff0000
      * @param ledval2 eg:0x000000
      * @param ledval3 eg:0x000000
@@ -162,8 +168,11 @@ namespace brightboard {
      * @param ledval10 eg:0x000000
      * @param ledval11 eg:0x000000
      * @param ledval12 eg:0x000000
+     * @param ledval13 eg:0x000000
+     * @param ledval14 eg:0x000000
+     * @param ledval15 eg:0x000000
      */
-    //% blockId="variable_color_for_led" block="$ledval1|$ledval2||$ledval3|$ledval4|$ledval5|$ledval6|$ledval7|$ledval8|$ledval9|$ledval10|$ledval11|$ledval12"
+    //% blockId="variable_color_for_led" block="$ledval1|$ledval2||$ledval3|$ledval4|$ledval5|$ledval6|$ledval7|$ledval8|$ledval9|$ledval10|$ledval11|$ledval12|$ledval13|$ledval14|$ledval15"
     //% ledval1.shadow="brightColorNumberPicker"
     //% ledval2.shadow="brightColorNumberPicker"
     //% ledval3.shadow="brightColorNumberPicker"
@@ -176,9 +185,12 @@ namespace brightboard {
     //% ledval10.shadow="brightColorNumberPicker"
     //% ledval11.shadow="brightColorNumberPicker"
     //% ledval12.shadow="brightColorNumberPicker"
+    //% ledval13.shadow="brightColorNumberPicker"
+    //% ledval14.shadow="brightColorNumberPicker"
+    //% ledval15.shadow="brightColorNumberPicker"
     //% inlineInputMode=inline group=patterns
     //% weight=125
-    export function colorForLedVariableLength(ledval1: number, ledval2: number, ledval3?: number, ledval4?: number, ledval5?: number, ledval6?: number, ledval7?: number, ledval8?: number, ledval9?: number, ledval10?: number, ledval11?: number, ledval12?: number): ColorPattern {
+    export function colorForLedVariableLength(ledval1: number, ledval2: number, ledval3?: number, ledval4?: number, ledval5?: number, ledval6?: number, ledval7?: number, ledval8?: number, ledval9?: number, ledval10?: number, ledval11?: number, ledval12?: number, ledval13?: number, ledval14?: number, ledval15?: number): ColorPattern {
         let colorList = [ledval1, ledval2];
         if (typeof ledval3 !== 'undefined') colorList.push(ledval3);
         if (typeof ledval4 !== 'undefined') colorList.push(ledval4);
@@ -190,6 +202,9 @@ namespace brightboard {
         if (typeof ledval10 !== 'undefined') colorList.push(ledval10);
         if (typeof ledval11 !== 'undefined') colorList.push(ledval11);
         if (typeof ledval12 !== 'undefined') colorList.push(ledval12);
+        if (typeof ledval13 !== 'undefined') colorList.push(ledval13);
+        if (typeof ledval14 !== 'undefined') colorList.push(ledval14);
+        if (typeof ledval15 !== 'undefined') colorList.push(ledval15);
         return new ColorPattern(colorList);
     }
 
@@ -213,7 +228,7 @@ namespace brightboard {
         _brightness: number;
         _start: number;
         _stride: number;  //bits per pixel
-        _length: number;  //number of pixels (12)
+        _length: number;  //number of pixels (15)
         _mode: ColorOrderMode;
         _pixelType: PixelType;
         _doGamma: boolean;
@@ -221,7 +236,7 @@ namespace brightboard {
         constructor(dataPin: DigitalPin, clkPin: DigitalPin) {
             this.dataPin = dataPin;
             this.clkPin = clkPin;
-            this._length = 12;
+            this._length = 15;
             this._stride = 3;
             this._brightness = 255;
             this.buf = pins.createBuffer(this._length * this._stride);
@@ -519,12 +534,12 @@ namespace brightboard {
     /**
      * Creates a color gradient between the specified pixels
      * @param startPixel First LED of gradient pattern eg:0
-     * @param nPixels Total number of LEDs to include in pattern eg:12
+     * @param nPixels Total number of LEDs to include in pattern eg:15
      * @param startColor Initial gradient color eg:0xff0000
      * @param endColor Final gradient color eg:0x00ff00
      */
     //% blockId=brightboard_gradient block="gradient start:%startPixel|length:%nPixels|from:%startColor|to:%endColor" group=patterns
-    //% startPixel.min=0 startPixel.max=11 nPixels.min=2 nPixels.max=12
+    //% startPixel.min=0 startPixel.max=11 nPixels.min=2 nPixels.max=15
     //% startColor.shadow="brightColorNumberPicker"
     //% endColor.shadow="brightColorNumberPicker"
     export function colorGradient(startPixel: number, nPixels: number, startColor: number, endColor: number): void {
@@ -620,7 +635,7 @@ namespace brightboard {
      * @param offset rotation steps eg:1
      */
     //% blockId=brightboard_rotate block="rotate pixels by $offset"
-    //% offset.min=-12 offset.max=12 group=actions
+    //% offset.min=-15 offset.max=15 group=actions
     export function rotate(offset: number): void {
         let stride = brightDisplay._stride;
         let start = brightDisplay._start;
@@ -635,7 +650,7 @@ namespace brightboard {
      * @param offset shift steps eg:1
      */
     //% blockId=brightboard_shift block="shift pixels by $offset"
-    //% offset.min=-12 offset.max=12 group=actions
+    //% offset.min=-15 offset.max=15 group=actions
     export function shift(offset: number): void {
         let stride = brightDisplay._stride;
         let start = brightDisplay._start;
