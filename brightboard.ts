@@ -396,7 +396,7 @@ namespace brightboard {
       * @param pixelOffset index of pixel
       */
     //% blockId=brightboard_pixel_value block="color at pixel %pixelOffset"
-    //% pixelOffset.defl=0 pixelOffset.max=11 pixelOffset.min=0
+    //% pixelOffset.defl=0 pixelOffset.max=14 pixelOffset.min=0
     //% group=colors 
     export function getPixelValue(pixelOffset: number, restoreBrightness: boolean=true): number {
         if (pixelOffset < 0 || pixelOffset >= brightDisplay.length()) {
@@ -539,7 +539,7 @@ namespace brightboard {
      * @param endColor Final gradient color eg:0x00ff00
      */
     //% blockId=brightboard_gradient block="gradient start:%startPixel|length:%nPixels|from:%startColor|to:%endColor" group=patterns
-    //% startPixel.min=0 startPixel.max=11 nPixels.min=2 nPixels.max=15
+    //% startPixel.min=0 startPixel.max=14 nPixels.min=2 nPixels.max=15
     //% startColor.shadow="brightColorNumberPicker"
     //% endColor.shadow="brightColorNumberPicker"
     export function colorGradient(startPixel: number, nPixels: number, startColor: number, endColor: number): void {
@@ -623,7 +623,7 @@ namespace brightboard {
 	 * @param rgb color to set pixel to eg:0xff0000
 	 */
     //% blockId=brightboard_set_pixel_color block="set pixel %led| to %rgb"
-    //% led.min=0 led.max=11 rgb.shadow="brightColorNumberPicker" group=actions
+    //% led.min=0 led.max=14 rgb.shadow="brightColorNumberPicker" group=actions
     export function setPixelColor(led: number, rgb: number) {
         brightDisplay.setPixelColor(led, rgb);
     }
