@@ -369,6 +369,18 @@ namespace brightboard {
     let brightDisplay = new BrightBoardDisplay(DigitalPin.P15, DigitalPin.P13);
 
     /**
+     * Change display length
+     */
+    //% blockId=changeboardlength
+    //% block="change length to $index"
+    //% index.min=2 index.max=64
+    export function ChgLgth(index: number): void {
+        index |= 0;
+        brightDisplay._length = index;
+        brightDisplay.buf = pins.createBuffer(brightDisplay._length * brightDisplay._stride);
+    }
+
+    /**
      * With Gamma correction on, color computations are a bit slower, but look more accurate to the eye.
      * @param applyGamma 
      */
