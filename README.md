@@ -1,4 +1,5 @@
 !!! extended from 12 to 15 Pixels for test purposes !!!
+!!! extension up to 64 Pixels with no block possible!!!
 
 # Bright Board display
 
